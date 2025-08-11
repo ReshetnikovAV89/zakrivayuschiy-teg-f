@@ -1,16 +1,347 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
+  appearance: none;
+  padding-block-start: 100px;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-main), sans-serif;
+  background-color: var(--color-bg);
+  background-image: var(--img-bg);
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--accent-color);
+  width: var(--main-width);
+  height: var(--header-height);
+  padding: 130px 50px;
+  margin-block-end: 96px;
+  background-color: var(--color-bg);
+  margin-left: var(--indent);
+  margin-right: var(--indent);
+}
+
+.header__logo {
+  text-transform: uppercase;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-family: var(--font-accent);
+}
+
+.header__title {
+  margin-top: 19px;
+  text-transform: uppercase;
+  font-family: var(--font-accent);
+  font-weight: inherit;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  box-shadow: inset 0 0 0 2px var(--accent-color);
+  min-width: var(--main-width);
+  margin-left: var(--indent);
+  margin-right: var(--indent);
+  overflow: hidden;
+  object-fit: cover;
+  margin-block-end: 6px;
+}
+
+.card__title {
+  font-size: 18px;
+  min-height: 34px;
+  padding-top: 7px;
+  padding-left: 14px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__image {
+  position: relative;
+  border-left: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+  box-shadow: inset 0 0 2px 2px var(--accent-color);
+  min-width: var(--picture-size);
+  min-height: var(--picture-size);
+}
+
+.image-source {
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.card__text {
+  padding: 21px 30px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 18px;
+}
+
+.watermark {
+  position: absolute;
+  inset-block-start: 22px;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  text-shadow: 2px 1px 0 var(--color-bg);
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+}
+
+@supports (
+  (text-stroke: 1px var(--color-bg, #ffffff)) or
+    (-webkit-text-stroke: 1px var(--color-bg, #ffffff))
+) {
+  .watermark {
+    -webkit-text-stroke: 1px var(--color-bg, #ffffff);
+    text-stroke: 1px var(--color-bg, #ffffff);
+    text-shadow: none;
+  }
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 6px;
+  padding: 0px 28px 20px;
+}
+
+.button {
+  position: relative;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+}
+
+.button__text {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  color: var(--color-bg);
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  min-width: 130px;
+  min-height: 38px;
+  padding-top: 7px;
+}
+
+.btn-shad:focus {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  color: transparent;
+}
+
+.btn-shad:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-paint::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s ease-in-out;
+}
+
+.button-paint:hover::before {
+  transform: scaleX(1);
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  padding: 0;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+  transition: 0.3s ease;
+}
+
+.like-icon {
+  overflow: visible;
+  min-width: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.main-body,
+.core {
+  fill: none;
+}
+
+.like-icon:hover .core,
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+}
+
+.like-icon:active .core,
+.like-icon:active .main-body {
+  fill: var(--color-heart-mb);
+}
+
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .contour {
+  fill: var(--color-heart-mb);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.save {
+  padding: 53px 0 103px;
+  display: flex;
+  justify-content: center;
+}
+
+.save__button {
+  background-color: var(--color-bg);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 335px;
+  height: 55px;
+  padding-left: 19px;
+  padding-right: 18px;
+  align-items: center;
+}
+
+.popup {
+  font-family: var(--font-accent);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  width: 353px;
+  padding: 30px;
+  background-color: var(--color-bg);
+  text-shadow: none;
+}
+
+.popup[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.popup__text {
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.form {
+  padding-block-start: 30px;
+}
+
+.popup__close-btn {
+  width: 293px;
+  height: 38px;
+  text-transform: uppercase;
+}
+
+.popup::backdrop {
+  opacity: 0.75;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.floppy {
+  color: var(--color-bg);
+  mix-blend-mode: difference;
+  max-width: 21px;
+}
+
+.floppy-dlg {
+  max-width: 39px;
+}
+
+.grayscale {
+  filter: grayscale(0.7);
+}
+
+.saturate {
+  filter: saturate(5);
+}
+
+.hue {
+  filter: hue-rotate(26deg);
+}
+
+.invert {
+  filter: invert(0.8);
+}
+
+.sepia {
+  filter: sepia(90%);
+}
+
+.blur {
+  filter: blur(8px);
+}
+
+.mult {
+  filter: hue-rotate(60deg) contrast(0.5) brightness(1.4);
+}
+
+@media (width <= 376px) {
+  .header {
+    padding-top: 120px;
+    margin-block-end: 100px;
+  }
+
+  .card__text {
+    padding: 29px 28px 21px;
+  }
+
+  .card__title {
+    padding-right: 9px;
+  }
+
+  .watermark {
+    padding-top: 8px;
+  }
+
+  .save__button {
+    grid-template-columns: 1fr;
+    width: 306px;
+    height: 84px;
+    justify-items: center;
+    padding-left: 18px;
+    padding-top: 9px;
+    padding-bottom: 10px;
+  }
+
+  .popup {
+    width: 341px;
+  }
+
+  .floppy {
+    min-width: 28px;
+  }
 }
