@@ -55,7 +55,7 @@
   margin-right: var(--indent);
   overflow: hidden;
   object-fit: cover;
-  margin-block-end: 6px;
+  margin-block-end: 13px;
 }
 
 .card__title {
@@ -82,7 +82,10 @@
 }
 
 .card__text {
-  padding: 21px 30px 25px;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 10px;
+  padding-bottom: 27px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -114,7 +117,9 @@
   display: flex;
   justify-content: end;
   gap: 6px;
-  padding: 0px 28px 20px;
+
+  padding-right: 28px;
+  padding-bottom: 30px;
 }
 
 .button {
@@ -212,7 +217,7 @@
 }
 
 .save {
-  padding: 53px 0 103px;
+  padding: 31px 0 103px;
   display: flex;
   justify-content: center;
 }
@@ -316,7 +321,11 @@
   }
 
   .card__text {
-    padding: 29px 28px 21px;
+    padding: 27px 28px 21px;
+  }
+
+  .card {
+    margin-block-end: 20px;
   }
 
   .card__title {
