@@ -4,6 +4,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-main), sans-serif;
+  font-variation-settings: "wght" 410 715;
   background-color: var(--color-bg);
   background-image: var(--img-bg);
   background-size: cover;
@@ -17,8 +18,7 @@
   align-items: center;
   border: 2px solid var(--accent-color);
   width: var(--main-width);
-  height: var(--header-height);
-  padding: 130px 50px;
+  padding: 131px 50px;
   margin-block-end: 96px;
   background-color: var(--color-bg);
   margin-left: var(--indent);
@@ -28,13 +28,13 @@
 .header__logo {
   text-transform: uppercase;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
 }
 
 .header__title {
   margin-top: 19px;
   text-transform: uppercase;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   font-weight: inherit;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
@@ -55,15 +55,16 @@
   margin-right: var(--indent);
   overflow: hidden;
   object-fit: cover;
-  margin-block-end: 0;
+  margin-block-end: 6px;
 }
 
 .card__title {
   font-size: 18px;
-  min-height: 34px;
+  padding-bottom: 2px;
   padding-top: 7px;
   padding-left: 14px;
   border-bottom: 2px solid var(--accent-color);
+  font-variation-settings: "wght" 410 715;
 }
 
 .card__image {
@@ -72,17 +73,17 @@
   border-right: 2px solid var(--accent-color);
   box-shadow: inset 0 0 2px 2px var(--accent-color);
   min-width: var(--picture-size);
-  min-height: var(--picture-size);
 }
 
 .image-source {
   inline-size: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  object-position: center;
 }
 
 .card__text {
-  padding-top: 20px;
+  padding-top: 18px;
   padding-left: 30px;
   padding-right: 10px;
   padding-bottom: 25px;
@@ -90,16 +91,18 @@
   flex-direction: column;
   gap: 22px;
   font-size: 18px;
+  padding-right: 0;
 }
 
 .watermark {
   position: absolute;
-  inset-block-start: 22px;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   font-size: 14px;
   text-shadow: 2px 1px 0 var(--color-bg);
   opacity: 0.5;
   mix-blend-mode: hard-light;
+  inset-block-start: 23px;
+  inset-inline-end: clamp(0.8125rem, -0.0529rem + 3.6923vw, 1.5625rem);
 }
 
 @supports (
@@ -117,7 +120,6 @@
   display: flex;
   justify-content: end;
   gap: 6px;
-
   padding-right: 28px;
   padding-bottom: 30px;
 }
@@ -130,7 +132,7 @@
 }
 
 .button__text {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   font-size: 14px;
   color: var(--color-bg);
   mix-blend-mode: difference;
@@ -191,33 +193,8 @@
   align-items: center;
 }
 
-.main-body,
-.core {
-  fill: none;
-}
-
-.like-icon:hover .core,
-.like-icon:hover .main-body {
-  fill: var(--accent-color);
-}
-
-.like-icon:active .core,
-.like-icon:active .main-body {
-  fill: var(--color-heart-mb);
-}
-
-.like-icon.is-liked .core,
-.like-icon.is-liked .main-body,
-.like-icon.is-liked .contour {
-  fill: var(--color-heart-mb);
-}
-
-.sparks {
-  opacity: 0;
-}
-
 .save {
-  padding: 50px 0 103px;
+  padding: 52px 0 103px;
   display: flex;
   justify-content: center;
 }
@@ -234,7 +211,7 @@
 }
 
 .popup {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   color: var(--accent-color);
   text-transform: uppercase;
   width: 353px;
@@ -273,7 +250,7 @@
 
 .popup::backdrop {
   opacity: 0.75;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: var(--accent-color);
 }
 
 .floppy {
@@ -316,12 +293,12 @@
 
 @media (width <= 376px) {
   .header {
-    padding-top: 120px;
-    margin-block-end: 100px;
+    padding: 120px 50px;
+    margin-block-end: 102px;
   }
 
   .card__text {
-    padding: 27px 28px 19px;
+    padding: 26px 28px 19px;
   }
 
   .card__title {
@@ -329,7 +306,16 @@
   }
 
   .watermark {
-    padding-top: 8px;
+    padding-top: 3px;
+    inset-inline-end: 26px;
+  }
+
+  .card {
+    margin-block-end: 3px;
+  }
+
+  .save {
+    padding-top: 47px;
   }
 
   .save__button {

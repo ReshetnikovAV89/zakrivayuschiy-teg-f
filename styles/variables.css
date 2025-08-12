@@ -1,9 +1,7 @@
 :root {
   --font-main: "Inter-Variable";
   --font-accent: "PressStart2P";
-  --font-weight-main: 410;
-  --font-weight-title: 715;
-
+  
   --img-bg: repeating-linear-gradient(
       to right,
       #d3d3d3 0 2px,
@@ -16,7 +14,6 @@
   --accent-color: rgb(0, 0, 0, 1);
   --color-heart-mb: rgb(255, 0, 0, 1);
 
-  --header-height: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
   --main-width: (23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   --indent: clamp(0rem, -8.0986rem + 34.554vw, 23rem);
   --picture-size: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);

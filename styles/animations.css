@@ -28,22 +28,29 @@
   }
 }
 
-.theme-menu__button {
-  transition: opacity 0.5s ease;
+.main-body,
+.core {
+  fill: transparent;
 }
 
-.theme-menu__button:disabled::before {
-  animation: arrow 0.5s ease-in-out infinite alternate;
+.like-icon:hover .core,
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
 }
 
-.theme-menu__button::after {
-  transform: scalex(0);
-  transform-origin: left;
-  transition: transform 0.3s;
+.like-icon:active .core,
+.like-icon:active .main-body {
+  fill: var(--color-heart-mb);
 }
 
-.theme-menu__button:focus-visible::after {
-  transform: scalex(1);
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .contour {
+  fill: var(--color-heart-mb);
+}
+
+.sparks {
+  opacity: 0;
 }
 
 .btn-shad {
@@ -58,7 +65,10 @@
   transition-delay: 0.03s;
 }
 
-.like-icon:hover .main-body,
+.like-icon:hover .main-body {
+  transition-delay: 0.05s;
+}
+
 .like-icon:active .main-body {
   transition-delay: 0.05s;
 }
@@ -66,7 +76,7 @@
 .like-icon .core,
 .like-icon .main-body,
 .like-icon:active .core {
-  transition: fill 0.3 linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon .contour {

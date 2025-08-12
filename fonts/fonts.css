@@ -2,7 +2,8 @@
   font-family: "PressStart2P";
   src: local("PressStart2P-Regular"),
     url(PressStart2P-Regular.woff) format("woff");
-  font-variation-settings: "wght" 400, "slnt" normal;
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -11,6 +12,6 @@
   src: local("Inter-Variable"),
     url(Inter-Variable.woff2) format("woff2 supports variations"),
     url(Inter-Variable.woff2) format("woff2-variations");
-  font-variation-settings: "wght" 410 715;
+  font-weight: 410 715;
   font-display: swap;
 }
